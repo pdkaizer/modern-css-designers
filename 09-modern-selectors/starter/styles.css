@@ -1,0 +1,307 @@
+/* ================================================================
+  EXERCISE: Replace the old multi-selector patterns below with
+  modern :is(), :where(), :has(), and :not() equivalents.
+
+  TASKS:
+  1. :is()  — one rule targets links in header, nav, AND footer on hover
+  2. :where() — low-specificity base styles for h1, h2, h3
+  3. :has(img) — card switches to horizontal grid when it has an image
+  4. :has(:focus) and :has(:invalid) — field wrapper reacts to its input
+  5. :not(.disabled) — menu items skip hover when disabled
+  6. BONUS: :has(input:checked) — active radio label gets highlighted
+================================================================ */
+
+
+/* --- Reset & base --- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 48px;
+}
+
+.demo-section {
+  margin-bottom: 56px;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+
+/* ================================================================
+  TASK 1: :is()
+  Replace these three separate hover rules with ONE :is() rule.
+================================================================ */
+
+/* 🔧 Old way — three separate selectors: */
+.site-header a:hover { color: #2c2cff; }
+.site-header nav a:hover { color: #2c2cff; }
+.site-footer a:hover { color: #2c2cff; }
+
+/* 🔧 New way — uncomment and replace the three rules above:
+:is(.site-header, .site-footer) a:hover {
+  color: #2c2cff;
+}
+*/
+
+
+/* ================================================================
+  TASK 2: :where()
+  Use :where(h1, h2, h3) for base heading styles.
+  These should have zero specificity so components can override easily.
+================================================================ */
+
+/* 🔧 Old way — repeated rules: */
+h1 { line-height: 1.1; margin-bottom: 0.5rem; }
+h2 { line-height: 1.2; margin-bottom: 0.5rem; }
+h3 { line-height: 1.2; margin-bottom: 0.5rem; }
+
+/* 🔧 New way — collapse into :where() */
+
+
+/* --- Header --- */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 48px;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-header a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+
+/* ================================================================
+  TASK 3: :has(img) — card layout
+  When a .card contains an <img>, switch it to a horizontal grid.
+================================================================ */
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+/* 🔧 Add: .card:has(img) { display: grid; grid-template-columns: 200px 1fr; } */
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2c2cff;
+  background: #eeeeff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  align-self: flex-start;
+}
+
+.card__title {
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.card__body {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+
+/* ================================================================
+  TASK 4: :has() on form fields
+  🔧 Style the .field wrapper (not the input) based on its input's state:
+  - .field:has(:focus) → highlight border
+  - .field:has(:invalid) → red border, show .field__hint in red
+================================================================ */
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: white;
+}
+
+/* 🔧 .field:has(:focus) { border-color: #2c2cff; } */
+/* 🔧 .field:has(:invalid) { border-color: #dc2626; } */
+
+.field__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.field__input {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.field__hint {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+/* 🔧 .field:has(:invalid) .field__hint { color: #dc2626; } */
+
+
+/* ================================================================
+  TASK 5: :not(.disabled)
+  🔧 Hover styles should only apply to items that don't have .disabled.
+================================================================ */
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 300px;
+}
+
+.menu-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* 🔧 Old way — hover on everything, then undo for .disabled: */
+.menu-item:hover { background: #eeeeff; color: #2c2cff; }
+.menu-item.disabled { color: #aaa; cursor: not-allowed; }
+.menu-item.disabled:hover { background: transparent; color: #aaa; }
+
+/* 🔧 New way — use :not(.disabled) so you write hover once: */
+/* .menu-item:not(.disabled):hover { ... } */
+
+
+/* ================================================================
+  BONUS: :has(input:checked) — radio toggle
+  🔧 A .toggle-option that :has(input:checked) should look "active":
+     blue background, white text. The input itself is visually hidden.
+================================================================ */
+
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.toggle-option input[type="radio"] {
+  /* 🔧 visually-hide the input */
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 🔧 .toggle-option:has(input:checked) { background: #2c2cff; color: white; border-color: #2c2cff; } */
+
+
+/* --- Footer --- */
+
+.site-footer {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 24px;
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 20px;
+}
+
+.site-footer a {
+  color: #555;
+  text-decoration: none;
+}

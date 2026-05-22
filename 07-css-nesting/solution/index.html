@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 07 — CSS Nesting (Solution)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>CSS Nesting Exercise</h1>
+      <p class="lead">
+        Each component's CSS is now a single nested block. The output is identical —
+        but the code is organized by component, not scattered across the file.
+      </p>
+
+
+      <section class="section">
+        <h2 class="section-label">Cards</h2>
+        <div class="component-row">
+
+          <div class="card">
+            <span class="card__tag">Default</span>
+            <h3 class="card__title">Standard card</h3>
+            <p class="card__body">This is the default card style. Hover to see the shadow.</p>
+          </div>
+
+          <div class="card card--compact">
+            <span class="card__tag">Variant</span>
+            <h3 class="card__title">Compact card</h3>
+            <p class="card__body">Same card, less padding. Uses the <code>--compact</code> modifier.</p>
+          </div>
+
+          <div class="card card--featured">
+            <span class="card__tag">Featured</span>
+            <h3 class="card__title">Featured card</h3>
+            <p class="card__body">Blue background, white text. Also has a hover state.</p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="section">
+        <h2 class="section-label">Buttons</h2>
+        <div class="component-row">
+          <button class="button">Primary</button>
+          <button class="button button--ghost">Ghost</button>
+          <button class="button button--destructive">Delete</button>
+          <button class="button" disabled>Disabled</button>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <h2 class="section-label">Form fields</h2>
+        <div class="fields">
+          <div class="field">
+            <label class="field__label">Full name</label>
+            <input class="field__input" type="text" placeholder="Jane Smith" />
+          </div>
+          <div class="field">
+            <label class="field__label">Email</label>
+            <input class="field__input" type="email" placeholder="jane@example.com" />
+          </div>
+          <div class="field field--error">
+            <label class="field__label">Website</label>
+            <input class="field__input" type="url" placeholder="not-a-url" />
+            <span class="field__error">Please enter a valid URL.</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>

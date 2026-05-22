@@ -1,0 +1,133 @@
+
+/* ================================================================
+  EXERCISE: This stylesheet has hard-coded values everywhere.
+  It's fragile — if the brand color changes, you'd update it
+  in a dozen places.
+
+  YOUR TASKS:
+  1. Create a :root block at the top with custom property tokens
+     for colors, spacing, font sizes, and border-radius values.
+  2. Replace every hard-coded value below with var(--token-name).
+  3. Add a .dark class to the <body> tag in the HTML and define
+     overrides in a `.dark` rule that flip the color tokens.
+  4. Add a .card--compact modifier that reduces card padding.
+
+  Hint: Start by identifying all the repeated values.
+  The brand color #2c2cff appears 4 times — that's a token waiting
+  to be created.
+================================================================ */
+
+
+/* --- Base styles --- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #f5f4f0;
+  color: #1a1a1a;
+  padding: 64px 24px;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+
+/* --- Typography --- */
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: #2c2cff;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+
+/* --- Card component --- */
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.card__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2c2cff;
+  background: #eeeeff;
+  border-radius: 4px;
+  padding: 4px 8px;
+  margin-bottom: 12px;
+}
+
+.card__title {
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.card__body {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+/* --- Button --- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #2c2cff;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.button:hover {
+  background: #1a1acc;
+}
+
+.button--ghost {
+  background: transparent;
+  color: #2c2cff;
+  border: 2px solid #2c2cff;
+}
+
+.button--ghost:hover {
+  background: #eeeeff;
+}
+
+.button + .button {
+  margin-left: 12px;
+}

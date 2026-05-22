@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 08 — Container Queries (Solution)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+
+      <h1>Container Queries</h1>
+      <p class="lead">
+        The same card component appears in two different contexts below.
+        With container queries, each card responds to <em>its own container</em>, not the viewport.
+      </p>
+
+      <section class="layout">
+
+        <div class="main-context">
+          <div class="card">
+            <img src="https://picsum.photos/seed/cq1/600/400" alt="Featured project" class="card__image" />
+            <div class="card__content">
+              <span class="card__tag">Featured</span>
+              <h2 class="card__title">Stellar OS</h2>
+              <p class="card__body">
+                A full design system rebuild — tokens, components, documentation, and everything in between.
+              </p>
+              <a href="#" class="button">View case study</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-context">
+          <div class="card">
+            <img src="https://picsum.photos/seed/cq1/600/400" alt="Featured project" class="card__image" />
+            <div class="card__content">
+              <span class="card__tag">Featured</span>
+              <h2 class="card__title">Stellar OS</h2>
+              <p class="card__body">
+                A full design system rebuild — tokens, components, documentation, and everything in between.
+              </p>
+              <a href="#" class="button">View case study</a>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="demo-section">
+        <h2 class="section-label">Container query units (cqi)</h2>
+        <p class="hint">Resize the browser — the title below scales with its container, not the viewport.</p>
+        <div class="cq-demo">
+          <div class="cq-card">
+            <h3 class="cq-title">This title scales with its container</h3>
+            <p>The font-size is set in <code>cqi</code> units — 1% of the container's inline size.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="section-label">Image hidden below 300px</h2>
+        <div class="narrow-demo">
+          <div class="card">
+            <img src="https://picsum.photos/seed/cq2/400/300" alt="Project" class="card__image" />
+            <div class="card__content">
+              <span class="card__tag">Narrow</span>
+              <h2 class="card__title">Orbit App</h2>
+              <p class="card__body">The image disappears when this container is less than 300px wide.</p>
+              <a href="#" class="button">Learn more</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>

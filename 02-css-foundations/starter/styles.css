@@ -1,0 +1,67 @@
+/* ================================================================
+  EXERCISE: This page is completely unstyled.
+  Add CSS rules below to transform it into a clean, readable page.
+
+  YOUR TASKS:
+  1. Add a box-sizing reset so padding doesn't break your widths.
+  2. Style the body — font family, max-width, centered with margin
+     auto, comfortable padding. Use rem for spacing.
+  3. Style the heading hierarchy — h1, h2, and h3 should each have
+     a distinct size and color. Let h3 use the brand color #2c2cff.
+  4. Style the nav — use display: flex and gap. Remove link underlines.
+     Add a :hover color change.
+  5. Style the main layout — article and aside side by side using flex.
+  6. Style the .card (the aside) — white background, border-radius,
+     padding, and a subtle box-shadow.
+  7. Style button — background color #2c2cff, white text, border-radius,
+     padding. Add a :hover state that darkens it to #1a1acc.
+  8. Style the footer — border-top, smaller text, muted color.
+
+  Hint: Work top-to-bottom. Get the reset and body right first —
+  everything else builds on that foundation.
+================================================================ */
+
+
+/* --- Reset --- */
+
+/* Your reset here */
+
+
+/* --- Body --- */
+
+/* Your body styles here */
+
+
+/* --- Header & Nav --- */
+
+/* Your header/nav styles here */
+
+
+/* --- Layout --- */
+
+/* Your main layout styles here */
+
+
+/* --- Typography --- */
+
+/* Your heading and paragraph styles here */
+
+
+/* --- Image --- */
+
+/* Your image styles here */
+
+
+/* --- Card --- */
+
+/* Your .card styles here */
+
+
+/* --- Button --- */
+
+/* Your button styles here */
+
+
+/* --- Footer --- */
+
+/* Your footer styles here */

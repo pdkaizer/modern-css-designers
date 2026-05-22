@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 05 — CSS Grid (Starter)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="page">
+
+    <!-- ============================================================
+      TASK 1: Page layout with grid-template-areas
+      🔧 Make .page a grid with named areas:
+         header spans full width, then sidebar + main side by side,
+         then footer full width.
+    ============================================================ -->
+
+    <header class="site-header">
+      <strong>Stellar Studio</strong>
+      <nav>
+        <a href="#">Work</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <aside class="sidebar">
+      <h2>Categories</h2>
+      <ul>
+        <li><a href="#">Product Design</a></li>
+        <li><a href="#">Brand Identity</a></li>
+        <li><a href="#">Design Systems</a></li>
+        <li><a href="#">Web & App</a></li>
+        <li><a href="#">Motion</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+
+      <!-- ============================================================
+        TASK 2: Image gallery
+        🔧 Use repeat(auto-fill, minmax(200px, 1fr)) on .gallery
+           so images reflow automatically as the viewport changes.
+      ============================================================ -->
+      <section class="content-section">
+        <h2 class="section-label">Image Gallery</h2>
+        <div class="gallery">
+          <img src="https://picsum.photos/seed/a/400/300" alt="Gallery image 1" />
+          <img src="https://picsum.photos/seed/b/400/300" alt="Gallery image 2" />
+          <img src="https://picsum.photos/seed/c/400/300" alt="Gallery image 3" />
+          <img src="https://picsum.photos/seed/d/400/300" alt="Gallery image 4" />
+          <img src="https://picsum.photos/seed/e/400/300" alt="Gallery image 5" />
+          <img src="https://picsum.photos/seed/f/400/300" alt="Gallery image 6" />
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+        TASK 3: Bento box
+        🔧 Create a grid where some cards span 2 columns or 2 rows.
+           Use grid-column: span 2 and grid-row: span 2 on specific cards.
+      ============================================================ -->
+      <section class="content-section">
+        <h2 class="section-label">Bento Layout</h2>
+        <div class="bento">
+          <div class="bento__card bento__card--wide">
+            <h3>Featured Project</h3>
+            <p>Stellar OS — a full design system rebuild.</p>
+          </div>
+          <div class="bento__card bento__card--tall">
+            <h3>Case Study</h3>
+            <p>From 0 to design system in 6 weeks.</p>
+          </div>
+          <div class="bento__card">
+            <h3>Orbit App</h3>
+            <p>Mobile-first task management.</p>
+          </div>
+          <div class="bento__card">
+            <h3>Nova Brand</h3>
+            <p>Identity for a fintech startup.</p>
+          </div>
+          <div class="bento__card">
+            <h3>Pulsar</h3>
+            <p>Analytics dashboard.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+        TASK 4: Subgrid — aligned card internals
+        🔧 Make .card-row a grid with 3 columns.
+           Give each .subgrid-card display: grid; grid-template-rows: subgrid;
+           and grid-row: span 3 so titles, body, and footers align across cards.
+      ============================================================ -->
+      <section class="content-section">
+        <h2 class="section-label">Subgrid Cards <span class="hint">(titles, body, and actions line up across all cards)</span></h2>
+        <div class="card-row">
+          <div class="subgrid-card">
+            <h3>Product Strategy</h3>
+            <p>Define the right thing to build before you build it right. We run structured discovery sprints to surface the real problem.</p>
+            <a href="#" class="button">Learn more</a>
+          </div>
+          <div class="subgrid-card">
+            <h3>UI Design</h3>
+            <p>Pixel-perfect interfaces.</p>
+            <a href="#" class="button">Learn more</a>
+          </div>
+          <div class="subgrid-card">
+            <h3>Design Systems</h3>
+            <p>A single source of truth that scales across your entire product surface and keeps design and engineering in sync at all times.</p>
+            <a href="#" class="button">Learn more</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================================
+        BONUS: Editorial layout
+        🔧 Three-column grid. Pull quote spans both rows in column 2.
+      ============================================================ -->
+      <section class="content-section">
+        <h2 class="section-label">Editorial Layout <span class="hint">(bonus: pull quote spans both rows in the middle column)</span></h2>
+        <div class="editorial">
+          <div class="editorial__text editorial__text--top">
+            <p>Great design is invisible. It reduces friction so completely that users never notice it — they only notice when it's missing.</p>
+          </div>
+          <blockquote class="editorial__quote">
+            "The best interface is no interface."
+            <cite>— Golden Krishna</cite>
+          </blockquote>
+          <div class="editorial__text editorial__text--bottom">
+            <p>This principle guides everything we build. Every decision is measured against a simple question: does this make it easier, or harder?</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2025 Stellar Studio. All rights reserved.</p>
+    </footer>
+
+  </body>
+</html>

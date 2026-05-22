@@ -1,0 +1,3 @@
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; }
+nav a { margin-right: 16px; }
+img { max-width: 100%; border-radius: 8px; }

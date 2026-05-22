@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 06 — Cascade Layers (Solution)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>Cascade Layers Exercise</h1>
+      <p class="lead">
+        The CSS for this page is organized into <code>@layer</code> blocks.
+        Utilities reliably override components — no <code>!important</code> needed.
+      </p>
+
+      <h2 class="section-title">Component showcase</h2>
+
+      <div class="component-row">
+        <button class="button highlight">Primary action</button>
+        <button class="button button--ghost">Secondary</button>
+        <button class="button" disabled>Disabled</button>
+      </div>
+
+      <div class="card mt-0">
+        <span class="card__tag">Foundations</span>
+        <h3 class="card__title">What are cascade layers?</h3>
+        <p class="card__body">
+          They let you control which CSS wins — not by selector specificity, but by declared layer priority.
+          A low-specificity utility in a higher layer beats a complex component selector in a lower one.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__tag">Exercise</span>
+        <h3 class="card__title">Your task</h3>
+        <p class="card__body text-center">
+          The <code>.text-center</code> class centers this text and <code>.mt-0</code> removes margin
+          from the card above — all without <code>!important</code>.
+        </p>
+      </div>
+
+      <p class="visually-hidden">This text is hidden visually but readable by screen readers.</p>
+
+    </div>
+  </body>
+</html>

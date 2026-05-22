@@ -1,0 +1,171 @@
+/* ================================================================
+  EXERCISE: This CSS is a mess.
+  There are specificity conflicts and !important hacks below.
+
+  YOUR TASKS:
+  1. Declare a layer order at the top: reset, base, components, utilities
+  2. Assign every rule block into the correct @layer
+  3. Remove ALL !important declarations
+  4. Prove it works:
+     - .mt-0 should zero out .card's margin-top
+     - .text-center should center text inside .card__body
+     - .highlight should NOT turn the button orange (components win over base)
+     ...all without !important
+
+  Hint: The key insight — a low-specificity rule in a higher layer
+  beats a high-specificity rule in a lower layer. Layer order is everything.
+================================================================ */
+
+
+/* --- DECLARE YOUR LAYER ORDER HERE --- */
+/* @layer reset, base, components, utilities; */
+
+
+/* These rules need to be assigned to layers. Wrap each group in @layer <name> { } */
+
+/* Should go in: reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Should go in: base */
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+/* Should go in: base — but is currently fighting with components */
+.highlight {
+  background: orange !important; /* 🔧 Remove !important — fix via layers instead */
+  color: white !important;
+}
+
+/* Should go in: components */
+.section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 24px;
+  margin-top: 48px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.component-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* Should go in: components */
+.button {
+  display: inline-flex;
+  align-items: center;
+  background: #2c2cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #1a1acc;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button--ghost {
+  background: transparent;
+  color: #2c2cff;
+  border: 2px solid #2c2cff;
+}
+
+.button--ghost:hover {
+  background: #eeeeff;
+}
+
+/* Should go in: components */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 16px;
+  border: 1px solid #e0e0e0;
+}
+
+.card__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2c2cff;
+  background: #eeeeff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin-bottom: 12px;
+}
+
+.card__title {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.card__body {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Should go in: utilities */
+/* 🔧 These currently lose to component specificity — layers will fix that */
+.mt-0 { margin-top: 0; }
+.text-center { text-align: center; }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

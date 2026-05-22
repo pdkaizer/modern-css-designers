@@ -1,0 +1,335 @@
+
+/* =================================================================
+  FINAL PROJECT STARTER
+  Fill in the blanks. Use every concept from the course.
+  Read the comments — they guide what to build where.
+================================================================= */
+
+
+/* -----------------------------------------------------------------
+  LAYER ORDER DECLARATION
+  Declare your layers here, in specificity order (lowest → highest).
+  Anything not in a layer is treated as highest specificity.
+----------------------------------------------------------------- */
+
+@layer tokens, base, components, utilities;
+
+
+/* -----------------------------------------------------------------
+  LAYER: tokens
+  Your design token system. Fill in real values.
+  Think of this like your Figma styles panel.
+----------------------------------------------------------------- */
+
+@layer tokens {
+  :root {
+    /* === COLORS === */
+    /* Brand */
+    --color-brand-50: /* lightest tint */;
+    --color-brand-500: /* your main brand color */;
+    --color-brand-700: /* darker for hover */;
+
+    /* Neutrals */
+    --color-neutral-0: #ffffff;
+    --color-neutral-50: /* near-white bg */;
+    --color-neutral-100: /* light border */;
+    --color-neutral-400: /* muted text */;
+    --color-neutral-900: /* near-black text */;
+
+    /* Semantic */
+    --color-success: /* green */;
+    --color-warning: /* amber */;
+    --color-error: /* red */;
+    --color-info: /* blue */;
+
+    /* Surface aliases (what components actually use) */
+    --color-bg: var(--color-neutral-50);
+    --color-surface: var(--color-neutral-0);
+    --color-border: var(--color-neutral-100);
+    --color-text: var(--color-neutral-900);
+    --color-text-muted: var(--color-neutral-400);
+    --color-accent: var(--color-brand-500);
+    --color-accent-hover: var(--color-brand-700);
+    --color-accent-tint: var(--color-brand-50);
+
+
+    /* === SPACING (base-4 scale) === */
+    --space-px: 1px;
+    --space-0-5: 2px;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-20: 80px;
+    --space-24: 96px;
+
+
+    /* === TYPOGRAPHY === */
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-mono: ui-monospace, 'Cascadia Code', monospace;
+
+    --text-xs: 0.75rem;    /* 12px */
+    --text-sm: 0.875rem;   /* 14px */
+    --text-base: 1rem;     /* 16px */
+    --text-lg: 1.125rem;   /* 18px */
+    --text-xl: 1.25rem;    /* 20px */
+    --text-2xl: 1.5rem;    /* 24px */
+    --text-3xl: 1.875rem;  /* 30px */
+    --text-4xl: 2.25rem;   /* 36px */
+    --text-5xl: 3rem;      /* 48px */
+
+    --leading-tight: 1.1;
+    --leading-snug: 1.3;
+    --leading-normal: 1.6;
+
+    --weight-normal: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+
+
+    /* === BORDER RADIUS === */
+    --radius-none: 0;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-full: 9999px;
+
+
+    /* === SHADOWS === */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 10px 30px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+
+
+    /* === TRANSITIONS === */
+    --duration-fast: 100ms;
+    --duration-base: 200ms;
+    --duration-slow: 300ms;
+    --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* Dark theme token overrides */
+  .dark {
+    /* Override only the semantic surface tokens */
+    --color-bg: /* dark bg */;
+    --color-surface: /* dark surface */;
+    --color-border: /* dark border */;
+    --color-text: /* light text */;
+    --color-text-muted: /* dimmer light text */;
+    --color-accent: /* adjusted brand for dark */;
+    --color-accent-hover: /* lighter */;
+    --color-accent-tint: /* very dark brand tint */;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Repeat the .dark overrides here for automatic dark mode */
+    }
+  }
+}
+
+
+/* -----------------------------------------------------------------
+  LAYER: base
+  Resets and defaults. Low specificity (use :where()).
+----------------------------------------------------------------- */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    line-height: var(--leading-tight);
+    font-weight: var(--weight-bold);
+    color: var(--color-text);
+  }
+
+  :where(p, ul, ol) {
+    color: var(--color-text-muted);
+  }
+
+  :where(img, video) {
+    max-width: 100%;
+    display: block;
+  }
+
+  :where(button, input, select, textarea) {
+    font: inherit;
+  }
+
+  :where(a) {
+    color: var(--color-accent);
+  }
+
+  /* Motion: define animations freely... */
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ...then disable for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+
+/* -----------------------------------------------------------------
+  LAYER: components
+  Your component styles. Use nesting. Reference token vars.
+----------------------------------------------------------------- */
+
+@layer components {
+
+  /* --- Page layout --- */
+  .page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-6);
+  }
+
+  .section {
+    margin-bottom: var(--space-20);
+  }
+
+  .section-title {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .component-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    align-items: flex-start;
+    margin-bottom: var(--space-8);
+  }
+
+
+  /* --- Button --- */
+  /*
+    TODO: Build the .button component using nesting.
+    Variants: --primary (default), --ghost, --destructive
+    States: :hover, :active, :disabled, .is-loading
+    Use transitions. Reference token vars only.
+  */
+  .button {
+    /* your styles here */
+  }
+
+
+  /* --- Form fields --- */
+  /*
+    TODO: Build .field, .field__label, .field__input components.
+    Use :has() to style the .field wrapper when its input:focus
+    and when it contains an :invalid input.
+  */
+  .field {
+    /* your styles here */
+  }
+
+
+  /* --- Card --- */
+  /*
+    TODO: Build .card with container query support.
+    When the card's container is >= 480px wide, switch to
+    a horizontal (image left, content right) layout.
+    Use :has(img) to conditionally apply the grid layout.
+  */
+  .card-wrapper {
+    container-type: inline-size;
+  }
+
+  .card {
+    /* your styles here */
+  }
+
+
+  /* --- Alert / Notification --- */
+  /*
+    TODO: Build .alert with variants:
+    --info, --success, --warning, --error
+    Add a slide-up animation on appearance.
+  */
+  .alert {
+    /* your styles here */
+  }
+
+
+  /* --- Navigation --- */
+  /*
+    TODO: Build .nav with logo and links.
+    Use flexbox for layout.
+    Use :is() to style links in the nav and footer consistently.
+  */
+  .nav {
+    /* your styles here */
+  }
+
+}
+
+
+/* -----------------------------------------------------------------
+  LAYER: utilities
+  Single-purpose overrides. These beat component styles.
+----------------------------------------------------------------- */
+
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Add more utilities as needed */
+}

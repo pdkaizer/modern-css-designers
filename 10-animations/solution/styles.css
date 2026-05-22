@@ -1,0 +1,250 @@
+/* --- Reset & base --- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 24px 120px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.lead {
+  color: #555;
+  margin-bottom: 48px;
+}
+
+.demo-section {
+  margin-bottom: 64px;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.hint {
+  font-size: 0.875rem;
+  color: #999;
+  margin-bottom: 16px;
+}
+
+
+/* --- Task 1: Button transitions --- */
+
+.button-row {
+  display: flex;
+  gap: 12px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  background: #2c2cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  background: #1a1acc;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 44, 255, 0.3);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.button--ghost {
+  background: transparent;
+  color: #2c2cff;
+  border: 2px solid #2c2cff;
+}
+
+.button--ghost:hover {
+  background: #eeeeff;
+  box-shadow: none;
+}
+
+.button--spring {
+  background: #10b981;
+  transition: background 0.2s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.button--spring:hover {
+  background: #059669;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+
+/* --- Task 2: slide-up animation --- */
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-row {
+  display: flex;
+  gap: 16px;
+}
+
+.card {
+  flex: 1;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  animation: slide-up 0.4s ease-out both;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+
+/* --- Task 3: Staggered list --- */
+
+.stagger-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stagger-item {
+  background: white;
+  border-radius: 8px;
+  padding: 14px 20px;
+  border: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  animation: slide-up 0.3s ease-out both;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0ms; }
+.stagger-item:nth-child(2) { animation-delay: 60ms; }
+.stagger-item:nth-child(3) { animation-delay: 120ms; }
+.stagger-item:nth-child(4) { animation-delay: 180ms; }
+.stagger-item:nth-child(5) { animation-delay: 240ms; }
+
+
+/* --- Task 4: Spinner --- */
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spinner-demo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid #e0e0e0;
+  border-top-color: #2c2cff;
+  animation: spin 0.8s linear infinite;
+}
+
+
+/* --- Task 5: prefers-reduced-motion --- */
+
+.motion-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* --- Bonus: Scroll-driven fade-in --- */
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-trigger {
+  animation: fade-in linear both;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+.scroll-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid #e0e0e0;
+}
+
+.scroll-card h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.scroll-card p {
+  font-size: 0.875rem;
+  color: #555;
+}

@@ -1,0 +1,5 @@
+/* Don't change this CSS yet — that comes in Lesson 02.
+   For now, focus entirely on the HTML structure below. */
+body { font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 24px; }
+nav a { margin-right: 16px; }
+img { max-width: 100%; border-radius: 8px; }

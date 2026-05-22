@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 06 — Cascade Layers (Starter)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>Cascade Layers Exercise</h1>
+      <p class="lead">
+        The CSS for this page is a mess — specificity conflicts, <code>!important</code> hacks,
+        and unpredictable overrides. Your job is to fix it using <code>@layer</code>.
+      </p>
+
+      <!-- This heading should be muted gray — but something is overriding it -->
+      <h2 class="section-title">Component showcase</h2>
+
+      <!-- The .button should be blue, but .highlight is fighting it -->
+      <div class="component-row">
+        <button class="button highlight">Primary action</button>
+        <button class="button button--ghost">Secondary</button>
+        <button class="button" disabled>Disabled</button>
+      </div>
+
+      <!-- .mt-0 should override the card's margin — but currently loses to specificity -->
+      <div class="card mt-0">
+        <span class="card__tag">Foundations</span>
+        <h3 class="card__title">What are cascade layers?</h3>
+        <p class="card__body">
+          They let you control which CSS wins — not by selector specificity, but by declared layer priority.
+          A low-specificity utility in a higher layer beats a complex component selector in a lower one.
+        </p>
+      </div>
+
+      <div class="card">
+        <span class="card__tag">Exercise</span>
+        <h3 class="card__title">Your task</h3>
+        <p class="card__body text-center">
+          Assign all rules to layers. Then prove that <code>.text-center</code> and <code>.mt-0</code>
+          override component styles — without any <code>!important</code>.
+        </p>
+      </div>
+
+      <!-- .visually-hidden should make this invisible but accessible -->
+      <p class="visually-hidden">This text is hidden visually but readable by screen readers.</p>
+
+    </div>
+  </body>
+</html>

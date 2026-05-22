@@ -1,0 +1,279 @@
+/* --- Reset & base --- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 48px;
+}
+
+.demo-section {
+  margin-bottom: 56px;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+
+/* --- Task 1: :is() — one hover rule for header, nav, footer links --- */
+
+:is(.site-header, .site-footer) a:hover {
+  color: #2c2cff;
+}
+
+
+/* --- Task 2: :where() — zero-specificity base heading styles --- */
+
+:where(h1, h2, h3) {
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+
+/* --- Header --- */
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 48px;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 24px;
+}
+
+.site-header a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-size: 0.9rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+
+/* --- Task 3: :has(img) — card layout --- */
+
+.card-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+
+.card:has(img) {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+}
+
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card__content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card__tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2c2cff;
+  background: #eeeeff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  align-self: flex-start;
+}
+
+.card__title {
+  font-size: 1rem;
+  color: #1a1a1a;
+}
+
+.card__body {
+  font-size: 0.875rem;
+  color: #555;
+}
+
+
+/* --- Task 4: :has() on form fields --- */
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: white;
+  transition: border-color 0.15s ease;
+}
+
+.field:has(:focus) {
+  border-color: #2c2cff;
+}
+
+.field:has(:invalid) {
+  border-color: #dc2626;
+}
+
+.field__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.field__input {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.field__hint {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.field:has(:invalid) .field__hint {
+  color: #dc2626;
+}
+
+
+/* --- Task 5: :not(.disabled) --- */
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 300px;
+}
+
+.menu-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.menu-item:not(.disabled):hover {
+  background: #eeeeff;
+  color: #2c2cff;
+}
+
+.menu-item.disabled {
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+
+/* --- Bonus: :has(input:checked) --- */
+
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.toggle-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-option:has(input:checked) {
+  background: #2c2cff;
+  color: white;
+  border-color: #2c2cff;
+}
+
+
+/* --- Footer --- */
+
+.site-footer {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 24px;
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #777;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 20px;
+}
+
+.site-footer a {
+  color: #555;
+  text-decoration: none;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 09 — Modern Selectors (Starter)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+
+      <header class="site-header">
+        <strong>Stellar Studio</strong>
+        <nav>
+          <a href="#">Work</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </nav>
+      </header>
+
+
+      <!-- ============================================================
+        TASK 1: :is() — target links in header, nav, and footer with one rule
+        🔧 Use :is(header, nav, footer) a:hover { color: #2c2cff; }
+           instead of repeating the selector three times.
+      ============================================================ -->
+
+      <main class="main">
+
+        <!-- ============================================================
+          TASK 2: :where() — low-specificity base styles for headings
+          🔧 Use :where(h1, h2, h3) { margin-bottom: 0.5rem; line-height: 1.2; }
+             in the base layer. These should be easily overridable.
+        ============================================================ -->
+        <h1>Modern CSS Selectors</h1>
+        <p class="lead">
+          Four selectors that eliminate entire categories of JavaScript.
+          This page demonstrates each one.
+        </p>
+
+
+        <!-- ============================================================
+          TASK 3: :has() — layout-aware card
+          🔧 Use .card:has(img) to switch to a grid layout
+             when the card contains an image.
+        ============================================================ -->
+        <section class="demo-section">
+          <h2 class="section-label">:has() — cards respond to their content</h2>
+
+          <div class="card-grid">
+            <div class="card">
+              <div class="card__content">
+                <span class="card__tag">No image</span>
+                <h3 class="card__title">Text-only card</h3>
+                <p class="card__body">This card has no image, so it stays in the default single-column layout.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://picsum.photos/seed/ms1/400/300" alt="Project" class="card__image" />
+              <div class="card__content">
+                <span class="card__tag">Has image</span>
+                <h3 class="card__title">Card with image</h3>
+                <p class="card__body">This card contains an img — :has(img) switches it to a horizontal grid layout.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ============================================================
+          TASK 4: :has() on a form field wrapper
+          🔧 Use .field:has(:focus) to highlight the wrapper on focus.
+             Use .field:has(:invalid) to show error styles.
+        ============================================================ -->
+        <section class="demo-section">
+          <h2 class="section-label">:has() — form field wrapper reacts to its input</h2>
+          <div class="fields">
+
+            <div class="field">
+              <label class="field__label">Full name</label>
+              <input class="field__input" type="text" placeholder="Focus me — the whole field highlights" />
+            </div>
+
+            <div class="field">
+              <label class="field__label">Email (required)</label>
+              <input class="field__input" type="email" required placeholder="Leave blank and blur to trigger error" />
+              <span class="field__hint">Uses :has(:invalid) on the wrapper, not the input itself.</span>
+            </div>
+
+          </div>
+        </section>
+
+
+        <!-- ============================================================
+          TASK 5: :not() — exclude disabled items from hover
+          🔧 Use .menu-item:not(.disabled):hover { ... } so disabled
+             items don't react to hover at all.
+        ============================================================ -->
+        <section class="demo-section">
+          <h2 class="section-label">:not() — disabled items skip hover</h2>
+          <ul class="menu">
+            <li class="menu-item">Product Design</li>
+            <li class="menu-item">Brand Identity</li>
+            <li class="menu-item disabled">Motion (coming soon)</li>
+            <li class="menu-item">Design Systems</li>
+            <li class="menu-item disabled">Workshops (coming soon)</li>
+          </ul>
+        </section>
+
+
+        <!-- ============================================================
+          BONUS: :has(input:checked) — CSS-only toggle
+          🔧 Use label:has(input:checked) to style the active tab.
+             The input is hidden; clicking the label toggles the checkbox.
+        ============================================================ -->
+        <section class="demo-section">
+          <h2 class="section-label">Bonus: :has(input:checked) — CSS-only toggle</h2>
+          <div class="toggle-group">
+            <label class="toggle-option">
+              <input type="radio" name="view" value="grid" checked />
+              Grid view
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="view" value="list" />
+              List view
+            </label>
+            <label class="toggle-option">
+              <input type="radio" name="view" value="map" />
+              Map view
+            </label>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="site-footer">
+        <nav>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </nav>
+        <p>© 2025 Stellar Studio.</p>
+      </footer>
+
+    </div>
+  </body>
+</html>

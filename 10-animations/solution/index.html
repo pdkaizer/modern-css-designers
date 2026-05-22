@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lesson 10 — Animations (Solution)</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+
+      <h1>Motion in CSS</h1>
+      <p class="lead">Add transitions and animations to the static UI below. Always animate <code>opacity</code> and <code>transform</code> — never layout properties.</p>
+
+      <section class="demo-section">
+        <h2 class="section-label">Task 1 — Button transitions</h2>
+        <div class="button-row">
+          <button class="button">Hover me</button>
+          <button class="button button--ghost">Ghost button</button>
+          <button class="button button--spring">Spring button</button>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="section-label">Task 2 — Cards slide up on load</h2>
+        <div class="card-row">
+          <div class="card">
+            <h3>Product Strategy</h3>
+            <p>Define the right thing to build.</p>
+          </div>
+          <div class="card">
+            <h3>UX Research</h3>
+            <p>Evidence-based design decisions.</p>
+          </div>
+          <div class="card">
+            <h3>UI Design</h3>
+            <p>Pixel-perfect interfaces.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="section-label">Task 3 — Staggered entrance</h2>
+        <ul class="stagger-list">
+          <li class="stagger-item">First item</li>
+          <li class="stagger-item">Second item</li>
+          <li class="stagger-item">Third item</li>
+          <li class="stagger-item">Fourth item</li>
+          <li class="stagger-item">Fifth item</li>
+        </ul>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="section-label">Task 4 — Loading spinner</h2>
+        <div class="spinner-demo">
+          <div class="spinner"></div>
+          <span>Loading…</span>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2 class="section-label">Task 5 — Reduced motion (check your OS settings)</h2>
+        <p class="hint">If your OS has "Reduce motion" enabled, all animations on this page should be instant.</p>
+        <div class="motion-card">
+          <p>This card uses all the animations from the tasks above.<br />They should be disabled if the user prefers reduced motion.</p>
+        </div>
+      </section>
+
+      <section class="demo-section scroll-trigger">
+        <h2 class="section-label">Bonus — Scroll-driven fade-in</h2>
+        <div class="scroll-card">
+          <h3>Scroll-triggered</h3>
+          <p>This element fades in as it enters the viewport — using <code>animation-timeline: view()</code>, no JavaScript needed.</p>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>
