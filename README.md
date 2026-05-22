@@ -48,6 +48,19 @@ Every lesson (01–11) follows the same format so you always know what to expect
 
 ## 🛠️ Setup
 
+**Get the course files**
+
+Clone this repository to your computer:
+
+```bash
+git clone git@github.com:pdkaizer/modern-css-designers.git
+cd modern-css-designers
+```
+
+Then open the `modern-css-designers` folder in VS Code.
+
+---
+
 You need two things:
 
 **1. A code editor**
