@@ -1,0 +1,294 @@
+/* ================================================================
+  RÉSUMÉ STYLESHEET
+  Fill in every "your styles here" section below.
+  The tokens and layer structure are already in place.
+
+  LAYOUT CHOICE — pick one and delete the other comment:
+    Option A: Two-column (sidebar left, content right)
+              grid-template-columns: 260px 1fr on .resume
+    Option B: Single column, max-width: 720px, centered
+
+  Hint: Work top-to-bottom. Get the page layout right first,
+  then style each section inside it.
+================================================================ */
+
+
+/* --- Layer order: lowest → highest priority --- */
+@layer tokens, base, components, utilities;
+
+
+/* ================================================================
+  LAYER: tokens
+  Define your résumé's design system here.
+  Keep all raw values in this block — nowhere else.
+================================================================ */
+@layer tokens {
+  :root {
+    /* Brand color — choose your own or use the course's #2c2cff */
+    --color-brand: /* your brand color */;
+    --color-brand-dark: /* darker shade for hover */;
+    --color-brand-tint: /* very light tint for backgrounds */;
+
+    /* Neutrals */
+    --color-bg: /* page background — off-white or white */;
+    --color-surface: /* card/sidebar surface */;
+    --color-border: /* subtle border */;
+    --color-text: /* main text — near black */;
+    --color-text-muted: /* secondary text — mid gray */;
+
+    /* Type scale */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-4xl: 2.25rem;
+
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+  }
+}
+
+
+/* ================================================================
+  LAYER: base
+  Reset and document defaults.
+================================================================ */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: var(--text-base);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  :where(h1, h2, h3) {
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  :where(ul) {
+    list-style: none;
+    padding: 0;
+  }
+
+  :where(a) {
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+
+  :where(a):hover {
+    text-decoration: underline;
+  }
+
+  address {
+    font-style: normal;
+  }
+}
+
+
+/* ================================================================
+  LAYER: components
+  Style each part of the résumé below.
+================================================================ */
+@layer components {
+
+  /* --- Page wrapper --- */
+  .resume {
+    /* 🔧 Choose your layout:
+
+    OPTION A — Two-column:
+      max-width: 960px;
+      margin: var(--space-8) auto;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      grid-template-rows: auto 1fr;
+      background: var(--color-surface);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+
+    OPTION B — Single column:
+      max-width: 720px;
+      margin: var(--space-8) auto;
+      padding: var(--space-12);
+      background: var(--color-surface);
+    */
+  }
+
+
+  /* --- Header --- */
+  .resume__header {
+    /* 🔧 your styles here */
+    /* Contains: .resume__identity (name + title) and .resume__contact */
+    /* Try: display: flex; justify-content: space-between; align-items: flex-start; */
+  }
+
+  .resume__name {
+    /* 🔧 Large — try var(--text-4xl) */
+    /* Color: var(--color-brand) or var(--color-text) */
+  }
+
+  .resume__title {
+    /* 🔧 your styles here — subtitle under name */
+  }
+
+  .resume__contact {
+    /* 🔧 Stack the contact links vertically */
+    /* Try: display: flex; flex-direction: column; gap: var(--space-1); */
+    /* font-size: var(--text-sm); text-align: right; */
+  }
+
+
+  /* --- Main body --- */
+  .resume__body {
+    /* 🔧 your styles here — padding and spacing for the content area */
+  }
+
+
+  /* --- Section --- */
+  .resume__section {
+    /* 🔧 margin-bottom between sections */
+  }
+
+  .resume__section-title {
+    /* 🔧 Section label — smaller, uppercase, letter-spaced */
+    /* Try: font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.1em; */
+    /* Add a bottom border: border-bottom: 2px solid var(--color-brand); */
+  }
+
+  .resume__summary {
+    /* 🔧 your styles here */
+  }
+
+
+  /* --- Job entry --- */
+  .job {
+    /* 🔧 margin-bottom between job entries */
+  }
+
+  .job__header {
+    /* 🔧 Space title-block and meta apart */
+    /* Try: display: flex; justify-content: space-between; align-items: flex-start; */
+  }
+
+  .job__title {
+    /* 🔧 font-size, font-weight */
+  }
+
+  .job__company {
+    /* 🔧 Muted, smaller text below the title */
+    /* display: block; color: var(--color-text-muted); font-size: var(--text-sm); */
+  }
+
+  .job__meta {
+    /* 🔧 Right-aligned date and location */
+    /* text-align: right; font-size: var(--text-sm); color: var(--color-text-muted); */
+  }
+
+  .job__location {
+    /* 🔧 your styles here */
+  }
+
+  .job__bullets {
+    /* 🔧 List of bullet points */
+    /* list-style: disc; padding-left: var(--space-6); */
+    /* li: font-size: var(--text-sm); color: var(--color-text-muted); */
+  }
+
+  .job__bullets li {
+    /* 🔧 your styles here */
+  }
+
+
+  /* --- Skills --- */
+  .skills {
+    /* 🔧 Lay out skill groups side by side */
+    /* Try: display: flex; gap: var(--space-8); */
+  }
+
+  .skills__category {
+    /* 🔧 Small label above each group */
+  }
+
+  .skills__list {
+    /* 🔧 Vertical list, font-size: var(--text-sm) */
+  }
+
+  .skills__list li {
+    /* 🔧 padding, border-bottom, or dot style — your call */
+  }
+
+}
+
+
+/* ================================================================
+  LAYER: utilities
+================================================================ */
+@layer utilities {
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+
+
+/* ================================================================
+  PRINT STYLES
+  🔧 Make the résumé look good on paper.
+  Remove shadows, backgrounds, screen-only chrome.
+  Set font sizes in pt for print precision.
+================================================================ */
+@media print {
+  body {
+    background: white;
+    font-size: 11pt;
+  }
+
+  .resume {
+    /* 🔧 Remove box-shadow and border-radius for print */
+    /* max-width: 100%; margin: 0; */
+  }
+
+  /* 🔧 Avoid page breaks inside a job entry */
+  .job {
+    /* break-inside: avoid; */
+  }
+
+  /* 🔧 Hide any screen-only UI (none in this starter, but good habit) */
+}
+
+
+/* ================================================================
+  REDUCED MOTION
+================================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
