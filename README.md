@@ -22,12 +22,13 @@ Every lesson is written with **designers in mind**: you'll build things that loo
 | 09 | [Modern Selectors](./09-modern-selectors/) | `:has()`, `:is()`, `:where()`, and logical grouping |
 | 10 | [Animations & Transitions](./10-animations/) | Motion design in CSS, respecting user preferences |
 | 11 | [Final Project](./11-final-project/) | Build a complete design system component library |
+| ✦ | [Bonus — HTML Résumé](./12-bonus/) | Put it all together: build a real, printable résumé |
 
 ---
 
 ## 📁 Lesson Structure
 
-Every lesson (01–11) follows the same format so you always know what to expect:
+Every lesson (01–11) follows the same format so you always know what to expect. The bonus activity (12) follows the same structure:
 
 ```
 01-html-foundations/
