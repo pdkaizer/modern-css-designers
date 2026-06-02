@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern CSS for Designers</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+
+    <!-- Nav -->
+    <header class="site-nav">
+      <div class="site-nav__inner">
+        <a class="site-nav__logo" href="#">
+          <span class="site-nav__logo-mark">CSS</span>
+          Modern CSS for Designers
+        </a>
+        <nav class="site-nav__links">
+          <a href="#curriculum">Curriculum</a>
+          <a href="#why">Why this course</a>
+          <a href="#start" class="button button--sm">Start learning</a>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">A hands-on course</p>
+        <h1 class="hero__headline">
+          CSS the way<br />designers think
+        </h1>
+        <p class="hero__sub">
+          Not an outdated tutorial from 2015. Modern CSS — the kind that maps
+          directly to how you already work in Figma — taught for designers
+          who are ready to build what they design.
+        </p>
+        <div class="hero__actions">
+          <a href="#start" class="button">Start for free</a>
+          <a href="#curriculum" class="button button--ghost">See the curriculum</a>
+        </div>
+
+        <div class="hero__badge-row">
+          <span class="badge">No build tools</span>
+          <span class="badge">No frameworks</span>
+          <span class="badge">No prior code experience needed</span>
+        </div>
+      </div>
+
+      <div class="hero__code-preview" aria-hidden="true">
+        <div class="code-window">
+          <div class="code-window__bar">
+            <span></span><span></span><span></span>
+          </div>
+          <pre class="code-window__body"><code><span class="tok-comment">/* Design tokens — just like Figma styles */</span>
+<span class="tok-selector">:root</span> {
+  <span class="tok-prop">--color-brand</span>: <span class="tok-value">#2c2cff</span>;
+  <span class="tok-prop">--space-4</span>: <span class="tok-value">16px</span>;
+  <span class="tok-prop">--radius-lg</span>: <span class="tok-value">12px</span>;
+}
+
+<span class="tok-comment">/* Dark theme — override only the tokens */</span>
+<span class="tok-selector">.dark</span> {
+  <span class="tok-prop">--color-brand</span>: <span class="tok-value">#7b7bff</span>;
+}
+
+<span class="tok-comment">/* Nesting — how your brain already works */</span>
+<span class="tok-selector">.card</span> {
+  <span class="tok-prop">background</span>: <span class="tok-value">white</span>;
+  <span class="tok-prop">border-radius</span>: <span class="tok-value">var(--radius-lg)</span>;
+
+  <span class="tok-selector">&:hover</span> {
+    <span class="tok-prop">box-shadow</span>: <span class="tok-value">0 8px 24px rgba(0,0,0,.1)</span>;
+  }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Why -->
+    <section class="why" id="why">
+      <div class="section-inner">
+        <h2 class="section-title">Built for how designers work</h2>
+        <p class="section-sub">Every concept is mapped to something you already understand from design tools. CSS will finally make sense.</p>
+
+        <div class="feature-grid">
+
+          <div class="feature-card">
+            <div class="feature-card__icon">✦</div>
+            <h3 class="feature-card__title">Design tokens in CSS</h3>
+            <p>The same way you define styles in Figma, you'll define custom properties in CSS. Change a token — everything updates.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon">⊞</div>
+            <h3 class="feature-card__title">Layout that makes sense</h3>
+            <p>Flexbox and Grid explained through layout problems you already solve every day with frames and auto layout.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon">◎</div>
+            <h3 class="feature-card__title">Components that respond</h3>
+            <p>Container queries let components respond to their own space — not the viewport. Design system thinking, in CSS.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card__icon">→</div>
+            <h3 class="feature-card__title">Real exercises, real output</h3>
+            <p>Every lesson ends with a starter file and a reference solution. You'll ship something that looks designed — not coded.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Old vs New comparison -->
+    <section class="comparison">
+      <div class="section-inner">
+        <h2 class="section-title">Modern CSS, not 2010 CSS</h2>
+        <p class="section-sub">This course deliberately skips the patterns you'll find in outdated tutorials.</p>
+
+        <div class="comparison-table" role="table" aria-label="Old CSS vs modern CSS">
+          <div class="comparison-table__header" role="row">
+            <span role="columnheader">The old way</span>
+            <span role="columnheader">The modern way</span>
+          </div>
+          <div class="comparison-table__row" role="row">
+            <span role="cell"><code>float: left</code> for layout</span>
+            <span role="cell">Flexbox &amp; Grid</span>
+          </div>
+          <div class="comparison-table__row" role="row">
+            <span role="cell">Repeated colour values everywhere</span>
+            <span role="cell">Custom properties (design tokens)</span>
+          </div>
+          <div class="comparison-table__row" role="row">
+            <span role="cell">Deep nested selectors</span>
+            <span role="cell">CSS Nesting</span>
+          </div>
+          <div class="comparison-table__row" role="row">
+            <span role="cell"><code>!important</code> as a crutch</span>
+            <span role="cell">Cascade Layers</span>
+          </div>
+          <div class="comparison-table__row" role="row">
+            <span role="cell">Media queries on every component</span>
+            <span role="cell">Container Queries</span>
+          </div>
+          <div class="comparison-table__row" role="row">
+            <span role="cell">JavaScript for parent selection</span>
+            <span role="cell"><code>:has()</code></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Curriculum -->
+    <section class="curriculum" id="curriculum">
+      <div class="section-inner">
+        <h2 class="section-title">12 lessons + a bonus activity</h2>
+        <p class="section-sub">Every lesson has a concept guide, a starter exercise, and a complete reference solution.</p>
+
+        <div class="lesson-grid">
+
+          <div class="lesson-card lesson-card--intro">
+            <span class="lesson-card__num">00</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Getting Started</h3>
+              <p class="lesson-card__desc">Set up your environment and open your first HTML file in the browser.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">01</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">HTML Foundations</h3>
+              <p class="lesson-card__desc">Semantic HTML, document structure, thinking in elements not boxes.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">02</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">CSS Foundations</h3>
+              <p class="lesson-card__desc">Selectors, the box model, and the cascade — three concepts that everything else builds on.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">03</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Custom Properties</h3>
+              <p class="lesson-card__desc">Design tokens in CSS. Dark mode, theming, and dynamic values without JavaScript.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">04</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Flexbox</h3>
+              <p class="lesson-card__desc">One-dimensional layout — nav bars, button groups, and anything in a row or column.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">05</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">CSS Grid</h3>
+              <p class="lesson-card__desc">Two-dimensional layout — page templates, galleries, and bento-style compositions.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">06</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Cascade Layers</h3>
+              <p class="lesson-card__desc">Take control of specificity wars. No more <code>!important</code>.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">07</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">CSS Nesting</h3>
+              <p class="lesson-card__desc">Write CSS the way your brain already organises components — grouped, not scattered.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">08</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Container Queries</h3>
+              <p class="lesson-card__desc">Components that respond to their own container's size, not the viewport.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">09</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Modern Selectors</h3>
+              <p class="lesson-card__desc"><code>:has()</code>, <code>:is()</code>, <code>:where()</code>, and <code>:not()</code> — selectors that replace JavaScript.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card">
+            <span class="lesson-card__num">10</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Animations &amp; Transitions</h3>
+              <p class="lesson-card__desc">Motion as a design material — keyframes, stagger, scroll-driven, and reduced motion.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card lesson-card--project">
+            <span class="lesson-card__num">11</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Final Project</h3>
+              <p class="lesson-card__desc">Build a complete design system component library — tokens, components, and dark mode.</p>
+            </div>
+          </div>
+
+          <div class="lesson-card lesson-card--bonus">
+            <span class="lesson-card__num">✦</span>
+            <div class="lesson-card__body">
+              <h3 class="lesson-card__title">Bonus — HTML Résumé</h3>
+              <p class="lesson-card__desc">Build a real, printable résumé using every concept from the course. Something you can actually keep.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Final CTA -->
+    <section class="cta" id="start">
+      <div class="cta__inner">
+        <h2 class="cta__headline">Ready to speak the language of the web?</h2>
+        <p class="cta__sub">Open lesson 00 and write your first line of CSS. It takes about five minutes to get something on screen.</p>
+        <a href="../00-getting-started/" class="button button--lg">Open Lesson 00 →</a>
+      </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <span class="site-footer__name">Modern CSS for Designers</span>
+        <nav class="site-footer__links">
+          <a href="../README.md">README</a>
+          <a href="#curriculum">Curriculum</a>
+          <a href="https://github.com/pdkaizer/modern-css-designers">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+
+  </body>
+</html>
