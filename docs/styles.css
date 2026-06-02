@@ -715,9 +715,10 @@
 
     .cta__actions {
       display: flex;
-      gap: var(--space-3);
+      gap: var(--space-6);
       flex-wrap: wrap;
       justify-content: center;
+      align-items: stretch;
     }
 
     .button {
