@@ -713,6 +713,13 @@
       max-width: 480px;
     }
 
+    .cta__actions {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .button {
       background: white;
       color: var(--color-brand);
@@ -721,6 +728,19 @@
         background: var(--color-brand-tint);
         color: var(--color-brand-dark);
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      &.button--ghost {
+        background: transparent;
+        color: white;
+        border-color: rgba(255, 255, 255, 0.5);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.12);
+          border-color: white;
+          color: white;
+          box-shadow: none;
+        }
       }
     }
   }
